@@ -1,0 +1,12 @@
+import React from 'react';
+import SvgIcon from '../../components/SvgIcon';
+
+const CarOutline = (props) => (
+  <SvgIcon {...props}>
+    <g>
+      <path d="M21.6 11.22L17 7.52V5a1.91 1.91 0 00-1.81-2H3.79A1.91 1.91 0 002 5v10a2 2 0 001.2 1.88 3 3 0 105.6.12h6.36a3 3 0 105.64 0h.2a1 1 0 001-1v-4a1 1 0 00-.4-.78zM20 12.48V15h-3v-4.92zM7 18a1 1 0 11-1-1 1 1 0 011 1zm5-3H4V5h11v10zm7 3a1 1 0 11-1-1 1 1 0 011 1z" />
+    </g>
+  </SvgIcon>
+);
+
+export default CarOutline;

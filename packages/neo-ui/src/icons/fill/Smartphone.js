@@ -1,0 +1,12 @@
+import React from 'react';
+import SvgIcon from '../../components/SvgIcon';
+
+const Smartphone = (props) => (
+  <SvgIcon {...props}>
+    <g>
+      <path d="M17 2H7a3 3 0 00-3 3v14a3 3 0 003 3h10a3 3 0 003-3V5a3 3 0 00-3-3zm-5 16a1.5 1.5 0 111.5-1.5A1.5 1.5 0 0112 18zm2.5-10h-5a1 1 0 010-2h5a1 1 0 010 2z" />
+    </g>
+  </SvgIcon>
+);
+
+export default Smartphone;
