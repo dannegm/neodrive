@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "error": {
+      "notext": "Texto no disponible",
+      "404": "Not Found"
+    },
+    "home": {
+      "title": "Inicio"
+    }
+  }
+}
