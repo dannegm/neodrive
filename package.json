@@ -1,8 +1,64 @@
 {
   "name": "neodrive",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:dannegm/neodrive.git",
   "author": "dannegm <dannegm@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "version:up": "lerna version --conventional-commits --yes",
+    "storybook": "start-storybook --port 3030",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint . --ext js",
+    "lint:fix": "npm run lint:js -- --fix",
+    "lint:css": "stylelint \"**/*.js\"",
+    "prettier": "prettier \"**/*.{js,json}\" --check",
+    "prettier:fix": "npm run prettier -- --write"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-backgrounds": "^5.3.19",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-essentials": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-notes": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-webpack": "^0.12.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.17.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.5",
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-custom-processor-loader": "^0.6.0",
+    "stylelint-processor-styled-components": "^1.10.0"
+  },
+  "repository": "git@github.com:dannegm/neodrive.git",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+js": [
+      "npm run prettier:fix",
+      "npm run lint"
+    ]
+  }
 }

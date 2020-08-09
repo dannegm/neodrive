@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./"
+  },
+  "exclude": ["**/build", "**/lib", "**/node_modules", "**/public"]
+}
