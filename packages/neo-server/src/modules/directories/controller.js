@@ -1,11 +1,18 @@
 import fs from 'fs';
 import path from 'path';
 
-import { OK, NOT_FOUND } from '@/utils/responses';
+import {
+  OK,
+  CREATED,
+  BAD_REQUEST,
+  NOT_FOUND,
+  INTERNAL_ERROR,
+} from '@/utils/responses';
 
 const STORAGE_PATH = process.env.STORAGE_PATH;
 
 const getContent = async (req, res) => {
+  const basePath = `~/${req.params[0]}`;
   try {
     const dirPath = path.join(STORAGE_PATH, req.params[0]);
     const directory = await fs.promises.opendir(dirPath);
@@ -23,14 +30,35 @@ const getContent = async (req, res) => {
     content.folders.sort();
     content.files.sort();
 
-    const response = { path: dirPath, content };
-    OK(res, response);
+    OK(res, { basePath, content });
   } catch (err) {
-    const respose = {
-      path: `~/${req.params[0]}`,
-    };
-    NOT_FOUND(res, respose);
+    NOT_FOUND(res, {
+      basePath,
+    });
   }
 };
 
-export { getContent };
+const createFolder = async (req, res) => {
+  const basePath = `~/${req.params[0]}`;
+  try {
+    const dirPath = path.join(STORAGE_PATH, req.params[0]);
+    const name = req.body.name;
+
+    if (!name) {
+      BAD_REQUEST(res, 'Please, provide a valid name');
+    }
+
+    const newFolderPath = path.join(dirPath, name.trim());
+
+    await fs.promises.mkdir(newFolderPath);
+
+    CREATED(res, {
+      name,
+      basePath,
+    });
+  } catch (err) {
+    INTERNAL_ERROR(res, err);
+  }
+};
+
+export { getContent, createFolder };

@@ -1,5 +1,9 @@
-import { getContent } from './controller';
+import { getContent, createFolder } from './controller';
 
 export default function router(app) {
-  app.route('/dir/*').get(getContent);
+  app
+    // breakline
+    .route('/dir/*')
+    .get(getContent)
+    .post(createFolder);
 }

@@ -4,6 +4,7 @@ import 'colors';
 
 import express from 'express';
 import session from 'express-session';
+import bodyParser from 'body-parser';
 import winston from 'winston';
 import helmet from 'helmet';
 import cors from 'cors';
@@ -18,6 +19,8 @@ app
   .use(express.json())
   .use(helmet())
   .use(cors())
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: false }))
   .use(
     session({
       secret: settings.server.secret,
