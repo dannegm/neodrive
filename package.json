@@ -1,0 +1,8 @@
+{
+  "name": "neodrive",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:dannegm/neodrive.git",
+  "author": "dannegm <dannegm@gmail.com>",
+  "license": "MIT"
+}
