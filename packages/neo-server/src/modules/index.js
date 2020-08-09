@@ -1,6 +1,7 @@
 const modules = [
   // breakline
   'directories',
+  'files',
 ];
 
 export default function buildModules(app) {
