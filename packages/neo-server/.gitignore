@@ -1,0 +1,8 @@
+# Misc
+*.env
+.env
+
+# Keep static folder but not content
+static/**/*
+!static
+!static/.gitkeep

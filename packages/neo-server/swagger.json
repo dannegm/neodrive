@@ -1,0 +1,18 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Quick Documentation for NEODRIVE API",
+    "version": "1.0.0",
+    "title": "NEODRIVE API",
+    "contact": {
+      "name": "Daniel García",
+      "url": "https://github.com/dannegm",
+      "email": "im@danielgarcia.me"
+    }
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://github.com/dannegm/neodrive/blob/master/LICENSE"
+  },
+  "schemes": ["http"]
+}
