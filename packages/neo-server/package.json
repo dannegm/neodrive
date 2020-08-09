@@ -2,11 +2,12 @@
   "name": "@neo/server",
   "version": "1.0.0",
   "license": "MIT",
+  "private": true,
   "scripts": {
-    "dev": "nodemon --exec babel-node src"
+    "dev": "nodemon --exec babel-node src",
+    "build:lib": "echo [@neo/server] Unimplemented"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.6.0",
     "body-parser": "^1.19.0",
     "cli-highlight": "^2.1.1",
     "colors": "^1.4.0",
@@ -15,6 +16,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.10",
     "express-session": "^1.17.1",
+    "express-static-gzip": "^2.0.7",
     "helmet": "^3.21.2",
     "moment": "^2.22.1",
     "swagger-ui-express": "^4.1.2",

@@ -1,9 +1,11 @@
-import '@babel/polyfill';
 import 'dotenv/config';
 import 'colors';
 
+import path from 'path';
+
 import express from 'express';
 import session from 'express-session';
+import staticGzip from 'express-static-gzip';
 import bodyParser from 'body-parser';
 import winston from 'winston';
 import helmet from 'helmet';
@@ -65,6 +67,17 @@ app.logger.json = (tag, code) => {
 //* Log all request
 app.use(logger);
 app.use(handleErrors);
+
+//* Static
+const staticPath = path.join(__dirname, './../static');
+app.use(
+  '/',
+  staticGzip(staticPath, {
+    enableBrotli: true,
+    orderPreference: ['br'],
+  })
+);
+app.use('/', express.static(staticPath));
 
 //* Server
 import server from '@/app';
