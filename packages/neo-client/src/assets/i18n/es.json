@@ -6,6 +6,9 @@
     },
     "home": {
       "title": "Inicio"
+    },
+    "explorer": {
+      "title": "Explorador"
     }
   }
 }

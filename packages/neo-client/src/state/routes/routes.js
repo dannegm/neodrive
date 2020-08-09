@@ -1,16 +1,16 @@
 import { lazy } from 'react';
 
-const Home = lazy(() =>
-  import(/* webpackChunkName: "page_Home" */ '@/pages/Home')
+const Explorer = lazy(() =>
+  import(/* webpackChunkName: "page_Explorer" */ '@/pages/Explorer')
 );
 
 const exact = true;
 
 export default [
   {
-    name: 'home',
+    name: 'explorer',
     path: '/',
-    component: Home,
-    exact,
-  },
+    component: Explorer,
+    exact
+  }
 ];

@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, './../build'),
     filename: `[name].min.js?${new Date().getTime()}`,
-    publicPath: '/',
+    publicPath: '/'
   },
 
   module: {
@@ -18,39 +18,43 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'stylelint-custom-processor-loader'],
+        use: ['babel-loader', 'stylelint-custom-processor-loader']
       },
       {
         test: /\.html$/,
-        use: ['html-loader'],
+        use: ['html-loader']
       },
-    ],
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'resolve-url-loader']
+      }
+    ]
   },
 
   plugins: [
     new HtmlWebPackPlugin({
-      template: path.join(__dirname, './../public/index.html'),
+      template: path.join(__dirname, './../public/index.html')
     }),
 
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
+      NODE_ENV: 'development'
     }),
 
-    new webpack.DefinePlugin({ config: JSON.stringify(require('config')) }),
+    new webpack.DefinePlugin({ config: JSON.stringify(require('config')) })
   ],
 
   resolve: {
     extensions: ['.js'],
     alias: {
-      '@': path.join(__dirname, './../src/'),
+      '@': path.join(__dirname, './../src/')
     },
-    modules: ['node_modules'],
+    modules: ['node_modules']
   },
 
   devServer: {
     port: 3010,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
 
-  devtool: 'inline-source-map',
+  devtool: 'inline-source-map'
 };
