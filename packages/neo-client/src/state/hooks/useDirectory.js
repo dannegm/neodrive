@@ -21,7 +21,9 @@ const useDirectory = (path = '/') => {
   const [content, setContent] = useState({ files: [], folders: [] });
 
   const listDirectory = async () => {
-    const response = await axios.get(`${apiHost}/dir/${currentPath}`);
+    const response = await axios.get(
+      `${apiHost}/dir/${currentPath !== '/' ? currentPath : ''}`
+    );
     setContent(response.data.data.content);
   };
 

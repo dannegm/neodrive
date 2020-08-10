@@ -8,7 +8,11 @@
       "title": "Inicio"
     },
     "explorer": {
-      "title": "Explorador"
+      "title": "Explorador",
+      "folder": {
+        "empty": "Carpeta sin contenido",
+        "dropZone": "Arrastra y suelta tus archivos para subirlos"
+      }
     }
   }
 }

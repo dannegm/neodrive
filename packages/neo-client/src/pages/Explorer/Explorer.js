@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { Breadcrumb, IconButton } from '@neo/ui/lib/components';
@@ -13,6 +12,9 @@ import {
 import Sidebar from './components/Sidebar';
 import Toolbar from './components/Toolbar';
 import Icon from './components/Icon';
+import EmptyFolder from './components/EmptyFolder';
+import DropZone from './components/DropZone';
+import ScrollArea from './components/ScrollArea';
 
 import {
   ExplorerWrapper,
@@ -21,6 +23,34 @@ import {
 } from './Explorer.styled';
 
 import useDirectory, { processPath } from '@/state/hooks/useDirectory';
+
+const Files = ({ content, handleFolder, currentPath }) => {
+  return (
+    <>
+      {content.folders.map((folder) => {
+        const context = currentPath !== '/' ? `${currentPath}/` : '';
+        return (
+          <Icon
+            key={`folder:${context}${folder}`}
+            color="#FFDB86"
+            icon={<FolderIcon />}
+            label={folder}
+            onClick={() => handleFolder(`${context}${folder}`)}
+          />
+        );
+      })}
+
+      {content.files.map((file) => (
+        <Icon
+          key={`file:${currentPath}/${file}`}
+          color="#bbb"
+          icon={<FileIcon />}
+          label={file}
+        />
+      ))}
+    </>
+  );
+};
 
 const Explorer = () => {
   const history = useHistory();
@@ -66,29 +96,22 @@ const Explorer = () => {
             </IconButton>
           }
         />
-        <ExplorerContent>
-          {content.folders.map((folder) => {
-            const context = currentPath !== '/' ? `${currentPath}/` : '';
-            return (
-              <Icon
-                key={`folder:${context}${folder}`}
-                color="#FFDB86"
-                icon={<FolderIcon />}
-                label={folder}
-                onClick={() => handleFolder(`${context}${folder}`)}
-              />
-            );
-          })}
 
-          {content.files.map((file) => (
-            <Icon
-              key={`file:${currentPath}/${file}`}
-              color="#bbb"
-              icon={<FileIcon />}
-              label={file}
-            />
-          ))}
-        </ExplorerContent>
+        <DropZone onFinished={() => listDirectory()}>
+          {!content.folders.length && !content.files.length ? (
+            <EmptyFolder />
+          ) : (
+            <ScrollArea>
+              <ExplorerContent>
+                <Files
+                  content={content}
+                  handleFolder={handleFolder}
+                  currentPath={currentPath}
+                />
+              </ExplorerContent>
+            </ScrollArea>
+          )}
+        </DropZone>
       </ExplorerContainer>
     </ExplorerWrapper>
   );

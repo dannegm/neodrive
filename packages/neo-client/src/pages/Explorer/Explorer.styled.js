@@ -20,7 +20,6 @@ const ExplorerContent = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 8rem);
   grid-gap: 1rem;
-  margin: 1rem;
 `;
 
 export {
