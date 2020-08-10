@@ -11,7 +11,7 @@ const moveFile = async (file, targetPath) => {
     await fs.promises.access(filePath);
     return Promise.reject({
       file: file.name,
-      message: 'File already exists',
+      message: 'File already exists'
     });
   } catch (_err) {
     file.mv(filePath, (err) => {
@@ -25,15 +25,15 @@ const moveFile = async (file, targetPath) => {
 };
 
 const uploadFile = async (req, res) => {
-  const basePath = `~/${req.params[0]}`;
-  const dirPath = path.join(STORAGE_PATH, req.params[0]);
+  const basePath = req.params[0];
+  const dirPath = path.join(STORAGE_PATH, basePath);
 
   try {
     await fs.promises.access(dirPath);
   } catch (err) {
     BAD_REQUEST(res, {
       basePath,
-      message: 'Target directory does not exists.',
+      message: 'Target directory does not exists.'
     });
   }
 
@@ -52,20 +52,20 @@ const uploadFile = async (req, res) => {
       await moveFile(file, dirPath);
       statuses.push({
         file: file.name,
-        status: 'uploaded',
+        status: 'uploaded'
       });
     } catch (err) {
       statuses.push({
         file: file.name,
         status: 'rejected',
-        reason: err,
+        reason: err
       });
     }
   }
 
   OK(res, {
     basePath,
-    statuses,
+    statuses
   });
 };
 

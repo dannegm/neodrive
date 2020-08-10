@@ -7,6 +7,9 @@
 **/lib
 **/build
 **/config/production.json
+*.env.production
+*.env.prod
+*.env
 
 # VisualStudioCode ###
 .vscode/*
@@ -16,7 +19,13 @@
 !.vscode/extensions.json
 *.code-workspace
 
-# misc
+# System Files
+._*
 .DS_Store
+.DS_Store?
+.Trashes
+Thumbs.db
 
+# Logs
+**/logs
 *.log*

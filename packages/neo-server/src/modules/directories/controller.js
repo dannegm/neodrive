@@ -6,15 +6,15 @@ import {
   CREATED,
   BAD_REQUEST,
   NOT_FOUND,
-  INTERNAL_ERROR,
+  INTERNAL_ERROR
 } from '@/utils/responses';
 
 const STORAGE_PATH = process.env.STORAGE_PATH;
 
 const getContent = async (req, res) => {
-  const basePath = `~/${req.params[0]}`;
+  const basePath = req.params[0];
+  const dirPath = path.join(STORAGE_PATH, basePath);
   try {
-    const dirPath = path.join(STORAGE_PATH, req.params[0]);
     const directory = await fs.promises.opendir(dirPath);
 
     const content = { files: [], folders: [] };
@@ -33,15 +33,15 @@ const getContent = async (req, res) => {
     OK(res, { basePath, content });
   } catch (err) {
     NOT_FOUND(res, {
-      basePath,
+      basePath
     });
   }
 };
 
 const createFolder = async (req, res) => {
-  const basePath = `~/${req.params[0]}`;
+  const basePath = req.params[0];
   try {
-    const dirPath = path.join(STORAGE_PATH, req.params[0]);
+    const dirPath = path.join(STORAGE_PATH, basePath);
     const name = req.body.name;
 
     if (!name) {
@@ -54,7 +54,7 @@ const createFolder = async (req, res) => {
 
     CREATED(res, {
       name,
-      basePath,
+      basePath
     });
   } catch (err) {
     INTERNAL_ERROR(res, err);

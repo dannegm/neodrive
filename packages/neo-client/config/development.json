@@ -1,4 +1,5 @@
 {
   "DEBUG": true,
-  "SUPPRESS_NO_CONFIG_WARNING": true
+  "SUPPRESS_NO_CONFIG_WARNING": true,
+  "NEO_API_HOST": "http://localhost:3000"
 }

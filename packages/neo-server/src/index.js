@@ -27,7 +27,7 @@ app
     session({
       secret: settings.server.secret,
       resave: true,
-      saveUninitialized: true,
+      saveUninitialized: true
     })
   );
 
@@ -38,7 +38,7 @@ app.logger.configure({
     new winston.transports.Console({
       name: 'Console',
       timestamp: new Date().toISOString(),
-      colorize: true,
+      colorize: true
     }),
 
     new winston.transports.File({
@@ -54,9 +54,9 @@ app.logger.configure({
         return `${
           options.timestamp
         } - [${options.level.toUpperCase()}] ${message}`;
-      },
-    }),
-  ],
+      }
+    })
+  ]
 });
 
 app.logger.json = (tag, code) => {
@@ -70,14 +70,7 @@ app.use(handleErrors);
 
 //* Static
 const staticPath = path.join(__dirname, './../static');
-app.use(
-  '/',
-  staticGzip(staticPath, {
-    enableBrotli: true,
-    orderPreference: ['br'],
-  })
-);
-app.use('/', express.static(staticPath));
+app.use(express.static(staticPath));
 
 //* Server
 import server from '@/app';

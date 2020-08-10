@@ -1,12 +1,16 @@
 {
-  "name": "neodrive",
+  "name": "@neo/main",
   "version": "1.0.0",
   "author": "dannegm <dannegm@gmail.com>",
   "license": "MIT",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "version:up": "lerna version --conventional-commits --yes",
     "storybook": "start-storybook --port 3030",
+    "build:lib": "lerna run build:lib",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint . --ext js",
     "lint:fix": "npm run lint:js -- --fix",

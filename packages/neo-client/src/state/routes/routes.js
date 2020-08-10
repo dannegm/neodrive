@@ -9,8 +9,7 @@ const exact = true;
 export default [
   {
     name: 'explorer',
-    path: '/',
-    component: Explorer,
-    exact
+    path: '/:folder*',
+    component: Explorer
   }
 ];
