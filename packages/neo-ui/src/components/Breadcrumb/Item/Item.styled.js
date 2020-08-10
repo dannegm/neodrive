@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { ellipsis } from 'polished';
 
 const ItemWrapper = styled.button`
   display: flex;
@@ -41,6 +42,7 @@ const ItemIcon = styled.div`
 const ItemText = styled.span`
   display: block;
   font-size: 1rem;
+  ${ellipsis('6rem')}
 `;
 
 export { ItemWrapper, ItemIcon, ItemText };
