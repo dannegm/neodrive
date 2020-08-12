@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { Breadcrumb, IconButton } from '@neo/ui/lib/components';
@@ -19,6 +19,7 @@ import ScrollArea from './components/ScrollArea';
 import {
   ExplorerWrapper,
   ExplorerContainer,
+  ExplorerScroller,
   ExplorerContent
 } from './Explorer.styled';
 
@@ -69,6 +70,8 @@ const Explorer = () => {
     history.push(selectedFolder !== '/' ? `/${selectedFolder}` : '/');
   };
 
+  const dropZoneTarget = useRef();
+
   return (
     <ExplorerWrapper>
       <Sidebar />
@@ -97,19 +100,19 @@ const Explorer = () => {
           }
         />
 
-        <DropZone onFinished={() => listDirectory()}>
+        <DropZone onFinished={() => listDirectory()} target={dropZoneTarget}>
           {!content.folders.length && !content.files.length ? (
             <EmptyFolder />
           ) : (
-            <ScrollArea>
-              <ExplorerContent>
+            <ExplorerScroller>
+              <ExplorerContent ref={dropZoneTarget}>
                 <Files
                   content={content}
                   handleFolder={handleFolder}
                   currentPath={currentPath}
                 />
               </ExplorerContent>
-            </ScrollArea>
+            </ExplorerScroller>
           )}
         </DropZone>
       </ExplorerContainer>

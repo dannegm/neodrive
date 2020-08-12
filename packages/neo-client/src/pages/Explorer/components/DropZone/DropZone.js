@@ -14,7 +14,7 @@ import {
   DropZoneDescription
 } from './DropZone.styled';
 
-const DropZone = ({ children, onSuccess, onError, onFinished }) => {
+const DropZone = ({ children, target, onSuccess, onError, onFinished }) => {
   const { t } = useTranslation();
   const dropZone = useRef();
   const { folder } = useParams();
@@ -23,7 +23,11 @@ const DropZone = ({ children, onSuccess, onError, onFinished }) => {
 
   const dragOver = (e) => {
     e.preventDefault();
-    setIsDragOver(e.target === dropZone.current);
+    const overTarget =
+      e.target === dropZone.current || e.target === target.current;
+
+    console.log(overTarget);
+    setIsDragOver(overTarget);
   };
 
   const dragLeave = (e) => {
@@ -74,13 +78,18 @@ DropZone.propTypes = {
   children: PropTypes.node.isRequired,
   onSuccess: PropTypes.func,
   onError: PropTypes.func,
-  onFinished: PropTypes.func
+  onFinished: PropTypes.func,
+  target: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ])
 };
 
 DropZone.defaultProps = {
   onSuccess: () => null,
   onError: () => null,
-  onFinished: () => null
+  onFinished: () => null,
+  target: null
 };
 
 export default DropZone;
