@@ -3,13 +3,13 @@ const path = require('path');
 const SVGO = require('svgo');
 const svgtojsx = require('svg-to-jsx');
 const evaIcons = require('eva-icons/eva-icons.json');
-const { DebugLogger } = require('@neo/utils');
+const DebugLogger = require('../utils/DebugLogger');
 
 const debug = new DebugLogger('Icon Genetaror', {
   DEBUG: process.env.NODE_ENV !== 'production',
 });
 
-const ICONS_OUTPUT_FOLDER = path.join(__dirname, '../icons');
+const ICONS_OUTPUT_FOLDER = path.join(__dirname, '../common/icons');
 const svgo = new SVGO({
   plugins: [
     { cleanupAttrs: true },

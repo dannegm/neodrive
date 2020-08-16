@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Scheme from '../../theme/scheme';
+import Scheme from '@/theme/scheme';
 
 const SidebarWrapper = styled.div`
   display: flex;

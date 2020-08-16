@@ -1,12 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { FileAddIcon } from '@neo/ui/lib/icons';
+import { FileAddIcon } from '@/common/icons';
 
 import {
   EmptyWrapper,
   EmptyIcon,
-  EmptyDescription
+  EmptyDescription,
 } from './EmptyFolder.styled';
 
 const EmptyFolder = () => {

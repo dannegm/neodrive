@@ -5,13 +5,13 @@ import { useParams } from 'react-router-dom';
 
 import useUpload from '@/state/hooks/useUpload';
 
-import { CloudUploadOutlineIcon } from '@neo/ui/lib/icons';
+import { CloudUploadOutlineIcon } from '@/common/icons';
 
 import {
   DropZoneWrapper,
   DropZoneMessage,
   DropZoneIcon,
-  DropZoneDescription
+  DropZoneDescription,
 } from './DropZone.styled';
 
 const DropZone = ({ children, target, onSuccess, onError, onFinished }) => {
@@ -81,15 +81,15 @@ DropZone.propTypes = {
   onFinished: PropTypes.func,
   target: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
-  ])
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
 };
 
 DropZone.defaultProps = {
   onSuccess: () => null,
   onError: () => null,
   onFinished: () => null,
-  target: null
+  target: null,
 };
 
 export default DropZone;

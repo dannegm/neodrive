@@ -2,7 +2,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import moment from 'moment';
-import { uppercase, currency, date } from '@neo/utils/lib/filters';
+import { uppercase, currency, date } from '@/utils/helpers/filters';
 
 import es from './assets/i18n/es.json';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Scheme from '../../theme/scheme';
+import Scheme from '@/theme/scheme';
 
 const IconButtonWrapper = styled.button`
   display: flex;
@@ -17,6 +17,7 @@ const IconButtonWrapper = styled.button`
   &:hover {
     background: rgb(0 0 0 / 15%);
   }
+
   &:active > * {
     transform: scale(0.9);
   }

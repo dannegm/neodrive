@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { textColorTheme } from '../../theme';
+import { textColorTheme } from '@/theme';
 
 const SvgWrapper = styled.svg`
   display: inline-block;

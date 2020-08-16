@@ -6,16 +6,16 @@ import {
   // breakline
   IconButton,
   Spacer,
-  Toolbar
-} from '@neo/ui/lib/components';
+  Toolbar,
+} from '@/common/components';
 
 import {
   ArrowIosBackOutlineIcon,
   ArrowIosForwardOutlineIcon,
   CornerLeftUpOutlineIcon,
   FolderAddOutlineIcon,
-  MoreVerticalOutlineIcon
-} from '@neo/ui/lib/icons';
+  MoreVerticalOutlineIcon,
+} from '@/common/icons';
 
 const ExplorerToolbar = ({ slotLeft, slotCenter, slotRight }) => {
   const history = useHistory();
@@ -60,13 +60,13 @@ const ExplorerToolbar = ({ slotLeft, slotCenter, slotRight }) => {
 ExplorerToolbar.propTypes = {
   slotLeft: PropTypes.node,
   slotCenter: PropTypes.node,
-  slotRight: PropTypes.node
+  slotRight: PropTypes.node,
 };
 
 ExplorerToolbar.defaultProps = {
   slotLeft: null,
   slotCenter: null,
-  slotRight: null
+  slotRight: null,
 };
 
 export default ExplorerToolbar;

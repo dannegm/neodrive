@@ -1,26 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { Breadcrumb, IconButton } from '@neo/ui/lib/components';
+import { Breadcrumb, IconButton } from '@/common/components';
 import {
   HomeOutlineIcon,
   RefreshOutlineIcon,
   FolderIcon,
-  FileIcon
-} from '@neo/ui/lib/icons';
+  FileIcon,
+} from '@/common/icons';
 
 import Sidebar from './components/Sidebar';
 import Toolbar from './components/Toolbar';
 import Icon from './components/Icon';
 import EmptyFolder from './components/EmptyFolder';
 import DropZone from './components/DropZone';
-import ScrollArea from './components/ScrollArea';
 
 import {
   ExplorerWrapper,
   ExplorerContainer,
   ExplorerScroller,
-  ExplorerContent
+  ExplorerContent,
 } from './Explorer.styled';
 
 import useDirectory, { processPath } from '@/state/hooks/useDirectory';

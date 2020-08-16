@@ -5,14 +5,14 @@ import {
   IconButton,
   Sidebar,
   Spacer,
-} from '@neo/ui/lib/components';
+} from '@/common/components';
 
 import {
   MenuOutlineIcon,
   HomeOutlineIcon,
   Trash2OutlineIcon,
   Settings2OutlineIcon,
-} from '@neo/ui/lib/icons';
+} from '@/common/icons';
 
 const ExplorerSidebar = () => {
   return (

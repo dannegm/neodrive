@@ -4,8 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec babel-node src",
-    "build:lib": "echo [@neo/server] Unimplemented"
+    "dev": "nodemon --exec babel-node src"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
